@@ -37,6 +37,6 @@ app.get('/users', format('./users'));
 
 /* istanbul ignore next */
 if (!module.parent) {
-  app.listen(3000);
-  console.log('Express started on port 3000');
+  	app.listen(3000);
+  	console.log('Express started on port 3000');
 }
