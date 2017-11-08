@@ -1,11 +1,7 @@
-/**
- * Module dependencies.
- */
-
 var express = require('../../');
 var path = require('path');
-var app = module.exports = express();
 var logger = require('morgan');
+var app = module.exports = express();
 var silent = 'test' == process.env.NODE_ENV;
 
 // general config
@@ -24,7 +20,6 @@ if ('production' == app.settings.env) app.disable('verbose errors');
 silent || app.use(logger('dev'));
 
 // Routes
-
 app.get('/', function(req, res){
   res.render('index.ejs');
 });
