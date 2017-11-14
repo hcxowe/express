@@ -1,7 +1,3 @@
-/**
- * Module dependencies.
- */
-
 var express = require('../../');
 var app = module.exports = express();
 var logger = require('morgan');
@@ -12,13 +8,10 @@ if ('test' != process.env.NODE_ENV) {
   app.use(logger(':method :url'));
 }
 
-// parses request cookies, populating
-// req.cookies and req.signedCookies
-// when the secret is passed, used
-// for signing the cookies.
+// 签名cookie
 app.use(cookieParser('my secret here'));
 
-// parses x-www-form-urlencoded
+// 表单解析 x-www-form-urlencoded
 app.use(express.urlencoded({ extended: false }))
 
 app.get('/', function(req, res){
@@ -33,7 +26,7 @@ app.get('/', function(req, res){
 
 app.get('/forget', function(req, res){
   res.clearCookie('remember');
-  res.redirect('back');
+  res.redirect('back'); // 应该是重定向到上一次的url
 });
 
 app.post('/', function(req, res){
